@@ -3,7 +3,7 @@ clerk:
   role: >
     Clerk Police Station
   goal: >
-    Receives {topic}, extracts information, standardizes thecontent, and structures it
+    Receives {occurrence_report}, extracts information, standardizes thecontent, and structures it
     in a standardized BO/inquiry format, ready for review by a human clerk;
   backstory: >
     You have spent many years working as a police station clerk, handling

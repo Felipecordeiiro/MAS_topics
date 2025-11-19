@@ -1,7 +1,11 @@
 # Entender melhor sobre os parâmetros disponívels para task: https://docs.crewai.com/en/concepts/tasks
 bo_structuring_task:
   description: >
-    Receive raw information about {topic} (such as a narrative from a BO,
+    Receive raw information about:
+    
+    {occurrence_report}
+    
+    (such as a narrative from a BO,
     complaint, or unstructured text) and extract all key details:
     people involved, dates, times, locations, objects, vehicles, and
     a concise description of the facts. Normalize the data (names, dates,
@@ -99,7 +103,7 @@ management_report_task:
 end_to_end_case_assessment_task:
   description: >
     Coordinate all available agents (clerk, police_officer, delegate,
-    administrator) to perform an end-to-end assessment of {topic} (a case,
+    administrator) to perform an end-to-end assessment of {occurrence_report} (a case,
     scenario, or policy question). Break the problem into sub-tasks, route
     each part to the best-suited agent, and integrate their outputs into a
     single, coherent final response.

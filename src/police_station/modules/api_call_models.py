@@ -19,7 +19,7 @@ def _llm_default() -> LLM:
 
 def _llm_leader() -> LLM:
     return LLM(
-        model="llama3.2:latest",
+        model="ollama/llama3.2:latest",
         base_url=_get_ollama_base_url(),
         temperature=0.7,
         api_key="ollama",

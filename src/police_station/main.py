@@ -8,7 +8,15 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 def run():
 
     inputs = {
-        "topic": "Police Station",
+        "occurrence_report": (
+            "On November 19, 2025, at 5:30 p.m., at 450 Girassóis Street, Jardim neighborhood,"
+            "the victim, Ms. Ana Silva, reported the theft of her electric bicycle."
+            "The bicycle was locked in the garage. There was no visible break-in,"
+            "suggesting that the criminal used a fake key or had prior access."
+            "The bicycle is blue, brand Specialized. The victim attached photos"
+            "of the bicycle and the intact lock. There is a record of a similar bicycle"
+            "theft on the same street 3 months ago (BO-2025/12345)."
+        )
     }
 
     try:
@@ -22,7 +30,6 @@ def train():
     """
     inputs = {
         "topic": "Police Station",
-        "message": "Caras, me lasquei hoje"
     }
     try:
         Station().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
@@ -46,7 +53,6 @@ def test():
     """
     inputs = {
         "topic": "Police Station",
-        "message": "Caras, me lasquei hoje"
     }
 
     try:

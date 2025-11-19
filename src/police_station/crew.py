@@ -53,7 +53,7 @@ class Station():
     def bo_structuring_task(self) -> Task:
         return Task(
             config=self.tasks_config["bo_structuring_task"],
-            output_file="BO_inquiry.md",
+            output_file="docs/BO_inquiry.md",
         )
 
     @task
@@ -79,14 +79,13 @@ class Station():
         return Task(
             config=self.tasks_config["end_to_end_case_assessment_task"],
         )
-
+    
     @crew
     def crew(self) -> Crew:
         """Creates the Police Station Crews"""
         return Crew(
             agents=self.agents,
             tasks=self.tasks,
-            manager_agent=self.lead(),
-            process=Process.hierarchical,
+            process=Process.sequential,
             verbose=True,
         )
