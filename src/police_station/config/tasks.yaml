@@ -1,0 +1,112 @@
+# Entender melhor sobre os parâmetros disponívels para task: https://docs.crewai.com/en/concepts/tasks
+bo_structuring_task:
+  description: >
+    Receive raw information about {topic} (such as a narrative from a BO,
+    complaint, or unstructured text) and extract all key details:
+    people involved, dates, times, locations, objects, vehicles, and
+    a concise description of the facts. Normalize the data (names, dates,
+    addresses) and structure it following the standard BO/inquiry format.
+  expected_output: >
+    A structured BO/inquiry-style record in markdown, with clear sections:
+    Identification of the case, Parties involved, Dates and locations,
+    Narrative of facts, and Observations/notes for human review.
+  agent: clerk
+
+missing_information_detection_task:
+  description: >
+    Analyze the provided BO or case description and identify any missing,
+    inconsistent, or ambiguous information that would prevent a human clerk
+    from properly registering the case. Propose specific questions that should
+    be asked to the reporting party or officer to complete the record.
+  expected_output: >
+    A list of missing or unclear information, followed by a list of concrete
+    clarification questions grouped by category (people, time, location, facts).
+  agent: clerk
+
+case_link_analysis_task:
+  description: >
+    Given the current case description and a set of past case summaries,
+    analyze whether there are possible links between them (same suspects,
+    vehicles, locations, modi operandi, time windows, or crime patterns).
+    Focus on practical investigation value rather than speculation.
+  expected_output: >
+    A list of potential links between the current case and past cases,
+    each with a short explanation of the suspected connection and its
+    strength (e.g., strong, moderate, weak). Include suggestions for
+    which cases should be prioritized for joint analysis.
+  agent: police_officer
+
+investigation_plan_task:
+  description: >
+    Based on the case description, risk level, and available information,
+    propose a concrete investigation plan. Include recommended actions such
+    as interviews, document or footage requests, on-site inspections,
+    database queries, and coordination with other units.
+  expected_output: >
+    A structured investigation plan in markdown, with sections for:
+    Objectives, Key hypotheses, Priority actions (short term), Secondary
+    actions (medium term), and Notes on risks or constraints.
+  agent: police_officer
+
+legal_qualification_task:
+  description: >
+    Read the case description, including structured BO/inquiry information,
+    and determine the appropriate legal qualification. Identify which crimes
+    may apply, the relevant legal articles and paragraphs, and whether
+    additional elements of proof are needed to characterize the offense.
+  expected_output: >
+    A legal analysis summarizing: (1) suggested crimes, (2) legal articles
+    and paragraphs, (3) justification for each qualification, and
+    (4) missing evidentiary elements, if any.
+  agent: delegate
+
+draft_legal_orders_task:
+  description: >
+    Based on the case context and the chosen legal qualification, prepare
+    draft legal orders and official letters (e.g., requests for information,
+    orders for expert examination, requests for footage, subpoenas) that
+    a chief of police could validate and sign.
+  expected_output: >
+    One or more draft documents in markdown, each with a clear heading,
+    addressee, body text, legal basis, and closing. The drafts must be
+    ready for minor edits and signature by the chief of police.
+  agent: delegate
+
+priority_queue_generation_task:
+  description: >
+    Given a list of cases with their statuses, deadlines, and basic metadata
+    (crime type, risk level, victim profile), generate a prioritized case
+    queue. Take into account legal deadlines, urgency, potential impact,
+    and any explicit priorities defined by the station.
+  expected_output: >
+    A sorted list of cases from highest to lowest priority, with an
+    explanation for the priority level of each case and flags for those
+    at risk of missing legal deadlines.
+  agent: administrator
+
+management_report_task:
+  description: >
+    Analyze the current portfolio of cases and produce a management report
+    for the police station leadership. Summarize key indicators such as:
+    number of open cases, backlog, cases close to legal deadlines, crime
+    distribution, and clearance rates.
+  expected_output: >
+    A management report in markdown with sections: Overview, Workload,
+    Deadlines and risks, Crime distribution, and Recommendations. Include
+    bullet-point summaries and highlight critical alerts.
+  agent: administrator
+
+end_to_end_case_assessment_task:
+  description: >
+    Coordinate all available agents (clerk, police_officer, delegate,
+    administrator) to perform an end-to-end assessment of {topic} (a case,
+    scenario, or policy question). Break the problem into sub-tasks, route
+    each part to the best-suited agent, and integrate their outputs into a
+    single, coherent final response.
+  expected_output: >
+    A final, integrated assessment combining: (1) a structured case summary,
+    (2) investigation hypotheses and plan, (3) legal qualification and suggested
+    procedures, and (4) priority and management considerations. The output
+    must be consistent, non-contradictory, and ready for human review.
+  agent: lead
+
