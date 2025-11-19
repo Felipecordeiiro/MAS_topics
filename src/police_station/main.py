@@ -1,7 +1,7 @@
 import sys
-
-from police_station.crew import Station
 import warnings
+
+from crew import Station
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -9,11 +9,10 @@ def run():
 
     inputs = {
         "topic": "Police Station",
-        "message": "Caras, me lasquei hoje"
     }
 
     try:
-        Station.crew().kickoff(inputs=inputs)
+        Station().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"Um erro ocorreu enquanto rodava o crew: {e}")
 
@@ -81,3 +80,5 @@ def run_with_trigger():
         return result
     except Exception as e:
         raise Exception(f"Um erro ocorreu enquanto rodava o crew: {e}")
+    
+run()

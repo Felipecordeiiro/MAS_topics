@@ -1,5 +1,6 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
+from modules.api_call_models import _llm_default, _llm_leader
 
 @CrewBase
 class Station():
@@ -11,6 +12,7 @@ class Station():
     def clerk(self) -> Agent:
         return Agent(
             config=self.agents_config['clerk'],
+            llm=_llm_default(),
             verbose=True
         )
     
@@ -18,6 +20,7 @@ class Station():
     def police_officer(self) -> Agent:
         return Agent(
             config=self.agents_config['police_officer'],
+            llm=_llm_default(),
             verbose=True
         )
     
@@ -25,6 +28,7 @@ class Station():
     def delegate(self) -> Agent:
         return Agent(
             config=self.agents_config['delegate'],
+            llm=_llm_default(),
             verbose=True
         )
     
@@ -32,6 +36,7 @@ class Station():
     def administrator(self) -> Agent:
         return Agent(
             config=self.agents_config['administrator'],
+            llm=_llm_default(),
             verbose=True
         )
     
@@ -39,44 +44,40 @@ class Station():
     def lead(self) -> Agent:
         return Agent(
             config=self.agents_config['lead'],
+            llm=_llm_leader(),
             verbose=True,
             allow_delegation=True,
         )
 
     @task
-    def clerk_task(self) -> Task:
-        """Task: structure a BO/inquiry from raw information."""
+    def bo_structuring_task(self) -> Task:
         return Task(
-            config=self.tasks_config["clerk_task"],
+            config=self.tasks_config["bo_structuring_task"],
             output_file="BO_inquiry.md",
         )
 
     @task
-    def police_task(self) -> Task:
-        """Task: perform case link analysis / investigation plan."""
+    def case_link_analysis_task(self) -> Task:
         return Task(
-            config=self.tasks_config["police_task"],
+            config=self.tasks_config["case_link_analysis_task"],
         )
 
     @task
-    def delegate_task(self) -> Task:
-        """Task: legal qualification and draft legal orders."""
+    def legal_qualification_task(self) -> Task:
         return Task(
-            config=self.tasks_config["delegate_task"],
+            config=self.tasks_config["legal_qualification_task"],
+        )
+    
+    @task
+    def priority_queue_generation_task(self) -> Task:
+        return Task(
+            config=self.tasks_config["priority_queue_generation_task"],
         )
 
     @task
-    def administrator_task(self) -> Task:
-        """Task: generate prioritized queue and/or management report."""
+    def end_to_end_case_assessment_task(self) -> Task:
         return Task(
-            config=self.tasks_config["administrator_task"],
-        )
-
-    @task
-    def lead_task(self) -> Task:
-        """Task: end-to-end orchestration of the case."""
-        return Task(
-            config=self.tasks_config["lead_task"],
+            config=self.tasks_config["end_to_end_case_assessment_task"],
         )
 
     @crew
@@ -85,7 +86,7 @@ class Station():
         return Crew(
             agents=self.agents,
             tasks=self.tasks,
-            manager_agent=self.agents['lead'],
+            manager_agent=self.lead(),
             process=Process.hierarchical,
             verbose=True,
         )
