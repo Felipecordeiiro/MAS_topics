@@ -4,3 +4,14 @@
 
 Projeto da disciplina de Tópicos 1.
 
+Ativam o ambiente:
+
+Linux
+```
+source .venv/bin/activate
+```
+
+Windows
+```
+.venv/Scripts/activate
+```

@@ -1,31 +1,21 @@
 ```markdown
-# BO/inquiry Record
+# Police Report - BO-2025/19876
 
 ## Identification of the Case
-- **Case Number:** BO-2025/19456 (Generated upon recording this incident)
-- **Date and Time:** 19 Novembro de 2025, às 17h30min
-- **Location:** Rua dos Girassóis, número 450, Bairro Jardim
+- **Date:** November 19, 2025
+- **Time:** 5:30 p.m.
+- **Location:** 450 Girassóis Street, Jardim neighborhood
 
 ## Parties Involved
-- **Victim:** Sra. Ana Silva
-- **Suspects:** Not identified at this time (based on the information provided)
-
-## Dates and Locations
-- **Date of Incident:** 19 Novembro de 2025
-- **Time of Incident:** às 17h30min
-- **Location of Incident:** Rua dos Girassóis, número 450, Bairro Jardim
+- **Victim:** Ms. Ana Silva
+- **Suspects:** None identified at this time
 
 ## Narrative of Facts
-- **Reported by:** Sra. Ana Silva
-- **Incident Reported on:** 19 Novembro de 2025, às 17h30min
-- **Location of Incident:** Garagem na Rua dos Girassóis, número 450, Bairro Jardim
-- **Object Stolen:** Bicicleta elétrica, marca Specialized, cor azul
-- **Observations:**
-  - A bicicleta estava trancada.
-  - Não houve arrombamento visível, sugerindo que o criminoso utilizou uma chave falsa ou teve acesso prévio.
+On November 19, 2025, at approximately 5:30 p.m., the victim, Ms. Ana Silva, reported that her electric bicycle, a blue Specialized model, was stolen from her garage located at 450 Girassóis Street, Jardim neighborhood. The bicycle had been securely locked with an intact lock. No visible signs of forced entry were observed, suggesting that either the criminal used a fake key or had prior access to the property.
 
 ## Observations/Notes for Human Review
-- A bicicleta é de cor azul e marca Specialized (anexadas fotos).
-- Há um registro de furto de bicicleta similar na mesma rua há 3 meses (BO-2025/12345).
+- **Similar Incident:** There is a record of a similar bicycle theft on this street 3 months ago (BO-2025/12345).
+- **Victim Attached Photos:** The victim has attached photos of her electric bicycle and the intact lock.
+```
 
-Please review the
+This structured format ensures that all key details are captured accurately and clearly, as required.

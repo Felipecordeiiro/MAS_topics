@@ -1,4 +1,3 @@
-import os
 from crewai import LLM
 
 def _get_ollama_base_url() -> str:

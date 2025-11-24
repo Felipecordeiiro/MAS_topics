@@ -5,11 +5,11 @@ bo_structuring_task:
     
     {occurrence_report}
     
-    (such as a narrative from a BO,
-    complaint, or unstructured text) and extract all key details:
-    people involved, dates, times, locations, objects, vehicles, and
-    a concise description of the facts. Normalize the data (names, dates,
-    addresses) and structure it following the standard BO/inquiry format.
+    (such as a narrative from a BO, complaint, or unstructured text) and
+    extract all key details: people involved, dates, times, locations,
+    objects, vehicles, and a concise description of the facts. Normalize
+    the data (names, dates, addresses) and structure it following the standard
+    BO/inquiry format.
   expected_output: >
     A structured BO/inquiry-style record in markdown, with clear sections:
     Identification of the case, Parties involved, Dates and locations,
@@ -113,4 +113,3 @@ end_to_end_case_assessment_task:
     procedures, and (4) priority and management considerations. The output
     must be consistent, non-contradictory, and ready for human review.
   agent: lead
-

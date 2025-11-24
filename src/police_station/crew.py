@@ -86,6 +86,6 @@ class Station():
         return Crew(
             agents=self.agents,
             tasks=self.tasks,
-            process=Process.sequential,
+            process=Process.hierarchical, # hierarchical, se tiver allow_delegation=True
             verbose=True,
         )
